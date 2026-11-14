@@ -44,9 +44,13 @@ $dcName="CAI-DC01"
 $dcDNS="closedai.com"
 $dcIP="10.42.0.10"
 
-# Ensure EternalBlue and ZeroLogon are guarenteed to be patched with no way to reopen those holes
+# Enumerate SMB Shares
+Write-Output "SMB Shares:"
+Get-SMBShare
+# Check Firewall
 
 # Start up Dispel Magic (User Auditing)
+Write-Output "Starting up Dispel Magic..."
 Start-Process -FilePath "./DispelMagic.ps1"
 # Install Sysmon
 Write-Output "Installing Sysmon..."

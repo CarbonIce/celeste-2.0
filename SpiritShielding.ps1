@@ -93,7 +93,7 @@ foreach ($domainUser in $allDomainUsers) {
     # $username = "CLOSEDAI\\$($domainUser | Select-Object -Expand SamAccountName)" # CLOSEDAI\account
 
     $username = $domainUser | Select-Object -Expand SamAccountName
-    if ($lastSeenUsersList -not -contains $username) {
+    if (-not $lastSeenUsersList -contains $username) {
         Write-Output "New Active Directory user $username?" "warn"
         Get-ADUser -Identity $username
     }
